@@ -1,0 +1,13 @@
+<?php
+
+	define( 'HUBSPOTAPIKEY',  '');
+	
+	$cross_origin_domains = array(
+		'https://es.greenpeace.org',
+		'https://gpstaging.enpruebas.net',
+		'http://localhost:8888',
+		'http://es.greenpeace.devel',
+		'https://greenpeace.github.io'
+	);
+
+?>
