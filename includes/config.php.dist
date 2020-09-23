@@ -1,5 +1,7 @@
 <?php
 
+    define('SHOW_ERRORS', false);
+
 	define( 'HUBSPOTAPIKEY',  '');
 	
 	$cross_origin_domains = array(

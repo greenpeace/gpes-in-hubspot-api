@@ -1,6 +1,6 @@
 <?php
 
-require('includes/display_errors.php'); // Comment this line in production
+require('includes/display_errors.php');
 require('includes/config.php');
 require('includes/functions.php');
 
