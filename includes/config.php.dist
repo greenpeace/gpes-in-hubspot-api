@@ -1,9 +1,12 @@
 <?php
 
+    // Show development errors (it won't return a json)
     define('SHOW_ERRORS', false);
 
+    // Your Hubspot API key
 	define( 'HUBSPOTAPIKEY',  '');
 	
+    // The domains that can use this API (CORS) 
 	$cross_origin_domains = array(
 		'https://es.greenpeace.org',
 		'https://gpstaging.enpruebas.net',
