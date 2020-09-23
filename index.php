@@ -25,11 +25,14 @@ $salesforce_campaign_ids = explode(";", $record['properties']['salesforcecampaig
 $response = array();
 
 $response['is_contact'] = $record['is-contact'] ? true : false;
-$response['lifecycle'] = $record['properties']['lifecyclestage']['value'];
-$response['has_phone'] = $record['properties']['phone']['value'] ? true : false;
-$response['opt_out'] = $record['properties']['otp_out_hbs']['value'] === "true" ? true : false;
-$response['list_memberships'] = $list_memberships;
-$response['salesforce_campaignids'] = $salesforce_campaign_ids;
+
+if ( $response['is_contact'] === true) {
+    $response['lifecycle'] = $record['properties']['lifecyclestage']['value'];
+    $response['has_phone'] = $record['properties']['phone']['value'] ? true : false;
+    $response['opt_out'] = $record['properties']['otp_out_hbs']['value'] === "true" ? true : false;
+    $response['list_memberships'] = $list_memberships;
+    $response['salesforce_campaignids'] = $salesforce_campaign_ids;
+}
 
 $response = json_encode( $response );
 
