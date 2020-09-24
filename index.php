@@ -20,7 +20,11 @@ if (isset($record['list-memberships'])) {
     }
 }
 
-$salesforce_campaign_ids = explode(";", $record['properties']['salesforcecampaignids']['value']);
+if( isset( $record['properties']['salesforcecampaignids']['value'] ) ){
+    $salesforce_campaign_ids = explode(";", $record['properties']['salesforcecampaignids']['value']);
+} else {
+    $salesforce_campaign_ids = array();
+}
 
 // Preparing response
 
