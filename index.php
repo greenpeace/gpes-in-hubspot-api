@@ -14,8 +14,10 @@ $record = httpGet($email);
 
 $list_memberships = array();
 
-foreach ( $record['list-memberships'] as $list) {
-    array_push( $list_memberships, $list['static-list-id'] );
+if (isset($record['list-memberships'])) {
+    foreach ( $record['list-memberships'] as $list) {
+        array_push( $list_memberships, $list['static-list-id'] );
+    }
 }
 
 $salesforce_campaign_ids = explode(";", $record['properties']['salesforcecampaignids']['value']);
