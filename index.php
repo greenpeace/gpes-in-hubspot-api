@@ -26,7 +26,11 @@ $salesforce_campaign_ids = explode(";", $record['properties']['salesforcecampaig
 
 $response = array();
 
-$response['is_contact'] = $record['is-contact'] ? true : false;
+if (isset( $record['is-contact'] )) {
+    $response['is_contact'] = $record['is-contact'] ? true : false;
+} else {
+    $response['is_contact'] = false;
+}
 
 if ( $response['is_contact'] === true) {
     $response['lifecycle'] = $record['properties']['lifecyclestage']['value'];
