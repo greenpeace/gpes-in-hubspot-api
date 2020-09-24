@@ -1,7 +1,7 @@
 <?php
 
-require('includes/display_errors.php');
 require('includes/config.php');
+require('includes/display_errors.php');
 require('includes/functions.php');
 
 // Inputs
