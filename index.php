@@ -53,6 +53,8 @@ $header_origin = isset($_SERVER['HTTP_ORIGIN']) ? filter_var($_SERVER['HTTP_ORIG
 
 if ( in_array( $header_origin, $cross_origin_domains) ) {
     header('Access-Control-Allow-Origin: ' . $header_origin);
+} else {
+    header('Access-Control-Allow-Origin: ' . 'https://es.greenpeace.org');
 }
 
 echo ( $response );
