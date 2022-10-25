@@ -3,8 +3,8 @@
     // Show development errors (it won't return a json)
     define('SHOW_ERRORS', false);
 
-    // Your Hubspot API key
-	define( 'HUBSPOTAPIKEY',  '');
+	// Your Hubspot private app key
+	define( 'HUBSPOT_PRIVATE_APP_KEY',  '');
 	
     // The domains that can use this API (CORS) 
 	$cross_origin_domains = array(

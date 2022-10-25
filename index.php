@@ -12,16 +12,8 @@ $record = httpGet($email);
 
 // Parsing certain arrays
 
-$list_memberships = array();
-
-if (isset($record['list-memberships'])) {
-    foreach ( $record['list-memberships'] as $list) {
-        array_push( $list_memberships, $list['static-list-id'] );
-    }
-}
-
-if( isset( $record['properties']['salesforcecampaignids']['value'] ) ){
-    $salesforce_campaign_ids = explode(";", $record['properties']['salesforcecampaignids']['value']);
+if( isset( $record['properties']['salesforcecampaignids'] ) ){
+    $salesforce_campaign_ids = explode(";", $record['properties']['salesforcecampaignids']);
 } else {
     $salesforce_campaign_ids = array();
 }
@@ -30,18 +22,18 @@ if( isset( $record['properties']['salesforcecampaignids']['value'] ) ){
 
 $response = array();
 
-if (isset( $record['is-contact'] )) {
-    $response['is_contact'] = $record['is-contact'] ? true : false;
-} else {
+if ($record == '') {
     $response['is_contact'] = false;
+    // $response['is_contact'] = $record['is-contact'] ? true : false;
+} else {
+    $response['is_contact'] = true;
 }
 
 if ( $response['is_contact'] === true) {
-    $response['lifecycle'] = $record['properties']['lifecyclestage']['value'];
-    $response['has_phone'] = isset($record['properties']['phone']['value']) ? true : false;
-    $response['has_mobile_phone'] = isset($record['properties']['mobilephone']['value']) ? true : false;
-    $response['opt_out'] = (isset($record['properties']['otp_out_hbs']) && $record['properties']['otp_out_hbs']['value'] === "true") ? true : false;
-    $response['list_memberships'] = $list_memberships;
+    $response['lifecycle'] = $record['properties']['lifecyclestage'];
+    $response['has_phone'] = isset($record['properties']['phone']) ? true : false;
+    $response['has_mobile_phone'] = isset($record['properties']['mobilephone']) ? true : false;
+    $response['opt_out'] = (isset($record['properties']['otp_out_hbs']) && $record['properties']['otp_out_hbs'] === "true") ? true : false;
     $response['salesforce_campaignids'] = $salesforce_campaign_ids;
 }
 
