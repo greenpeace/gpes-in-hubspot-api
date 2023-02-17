@@ -1,3 +1,5 @@
+IMPORTANT: This repository is deprecated and should be replaced by [this one](https://github.com/greenpeace/gpes-get-hubspot-user-data).
+
 # Hubspot info for our form pages
 
 API to improve our forms and Wordpress pages.
